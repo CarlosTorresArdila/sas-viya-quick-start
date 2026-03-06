@@ -1,4 +1,4 @@
-## Copyright © 2022, SAS Institute Inc., Cary, NC, USA.  All Rights Reserved.
+## Copyright © 2026, SAS Institute Inc., Cary, NC, USA.  All Rights Reserved.
 ##  SPDX-License-Identifier: Apache-2.0                                        
 
 
@@ -22,7 +22,7 @@ def score_method(DELINQ, DEROG, JOB, NINQ, REASON, CLAGE, CLNO, DEBTINC, LOAN, M
     rec_intv = record[dm_interval_input]
     rec_intv_imp = imputer.transform(rec_intv)
 
-    rec_class = record[dm_class_input].applymap(str)
+    rec_class = record[dm_class_input].map(str)
     rec_class_ohe = ohe.transform(rec_class).toarray()
 
     rec = np.concatenate((rec_intv_imp, rec_class_ohe), axis=1)
